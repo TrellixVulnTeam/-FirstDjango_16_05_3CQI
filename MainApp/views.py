@@ -33,3 +33,13 @@ def item_page(request, id):
             return HttpResponse(item_str)
 
     return HttpResponse(f"Товар c id={id} не найден")
+
+
+def items_list(request):
+    items_result = "<ol>"
+    for item in items:
+        items_result += "<li>" + f"<a href='/item/{item['id']}'>" + item["name"] + "</a>" + "</li>"
+
+    items_result += "</ol>"
+
+    return HttpResponse(items_result)
