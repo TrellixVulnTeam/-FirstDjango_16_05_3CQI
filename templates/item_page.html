@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Страница товара</h1>
+Название: {{ name }} <br>
+Количество: {{ quantity|default:"Товар отсутствует" }}
+<!--{% if quantity %}-->
+<!--    {{ quantity }}-->
+<!--{% else %}-->
+<!--    Товар отсутствует-->
+<!--{% endif %}-->
+<br>
+<a href="/items">Назад</a>
+</body>
+</html>
