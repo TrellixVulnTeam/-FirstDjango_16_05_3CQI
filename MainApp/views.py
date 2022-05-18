@@ -3,6 +3,8 @@ from django.shortcuts import render, HttpResponse
 name = "Евгений"
 surname = "Юрченко"
 email = "eyurchenko@specialist.ru"
+phone = "8-923-600-01-02"
+
 items = [
     {"id": 1, "name": "Кроссовки abibas", "quantity": 5},
     {"id": 2, "name": "Куртка кожаная", "quantity": 2},
@@ -13,17 +15,17 @@ items = [
 
 
 def about(request):
-    info = f""" <div>Имя: <b>{name}</b> </div>
-                Фамилия: <b>{surname}</b> <br>
-                телефон: <b>8-923-600-01-02</b> <br>
-                email: <b>{email}</b>"""
-    return HttpResponse(info)
+    context = {
+        "name": "Евгений",
+        "surname": "Юрченко",
+        "phone": 79008001012,
+        "email": [2, 5, "6", 7.6, 8]
+    }
+    return render(request, "about.html", context)
 
 
 def home(request):
-    text = f"""<h1> "Изучаем django" </h1>
-    <strong> Автор </strong>: <i> {surname} Е.В. </i>"""
-    return HttpResponse(text)
+    return render(request, "index.html")
 
 
 def item_page(request, id):
@@ -36,10 +38,14 @@ def item_page(request, id):
 
 
 def items_list(request):
-    items_result = "<ol>"
-    for item in items:
-        items_result += "<li>" + f"<a href='/item/{item['id']}'>" + item["name"] + "</a>" + "</li>"
-
-    items_result += "</ol>"
-
-    return HttpResponse(items_result)
+    # items_result = "<ol>"
+    # for item in items:
+    #     items_result += "<li>" + f"<a href='/item/{item['id']}'>" + item["name"] + "</a>" + "</li>"
+    #
+    # items_result += "</ol>"
+    #
+    # return HttpResponse(items_result)
+    context = {
+        "items": items
+    }
+    return render(request, "items.html", context)
