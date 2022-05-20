@@ -6,14 +6,9 @@
 </head>
 <body>
 <h1>Страница товара</h1>
-Название: {{ name }} <br>
-Количество: {{ quantity|default:"Товар отсутствует" }}
-<!--{% if quantity %}-->
-<!--    {{ quantity }}-->
-<!--{% else %}-->
-<!--    Товар отсутствует-->
-<!--{% endif %}-->
-<br>
+Название: {{ item.name }} <br>
+Бренд: {{ item.brand }} <br>
+Количество: {{ item.count|default:"Товар отсутствует" }}<br>
 <a href="/items">Назад</a>
 </body>
 </html>
