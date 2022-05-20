@@ -21,3 +21,7 @@ def items_list(request):
         "items": items
     }
     return render(request, "items.html", context)
+
+
+def page1(request):
+    return render(request, "page1.html")
